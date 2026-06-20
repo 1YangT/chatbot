@@ -1,0 +1,230 @@
+/* Chatbot 自定义样式 */
+
+/* 页面背景 */
+.stApp {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+    min-height: 100vh;
+}
+
+/* 主容器 */
+.main-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 聊天容器 */
+.chat-container {
+    background: #1e293b;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* 消息气泡 - 用户 */
+.user-bubble {
+    background: #3b82f6;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 18px 18px 4px 18px;
+    margin-bottom: 12px;
+    max-width: 80%;
+    margin-left: auto;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+/* 消息气泡 - 机器人 */
+.bot-bubble {
+    background: #334155;
+    color: #f8fafc;
+    padding: 12px 18px;
+    border-radius: 18px 18px 18px 4px;
+    margin-bottom: 12px;
+    max-width: 80%;
+    margin-right: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* 消息文本 */
+.message-text {
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* 头像 */
+.avatar {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+/* 消息头部 */
+.message-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+}
+
+/* 用户名/机器人名 */
+.message-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.user-name {
+    color: #93c5fd;
+}
+
+.bot-name {
+    color: #fbbf24;
+}
+
+/* 输入区域 */
+.input-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(30, 41, 59, 0.95);
+    padding: 15px;
+    border-top: 1px solid #334155;
+    backdrop-filter: blur(10px);
+}
+
+.input-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+}
+
+/* 输入框 */
+.stTextInput > div > div > input {
+    background: #334155 !important;
+    border: 1px solid #475569 !important;
+    border-radius: 12px !important;
+    color: #f8fafc !important;
+    padding: 12px 18px !important;
+    font-size: 15px !important;
+}
+
+.stTextInput > div > div > input::placeholder {
+    color: #64748b !important;
+}
+
+/* 发送按钮 */
+.send-button {
+    background: #3b82f6 !important;
+    color: white !important;
+    border-radius: 12px !important;
+    padding: 0 24px !important;
+    font-weight: 600 !important;
+    border: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.send-button:hover {
+    background: #2563eb !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4) !important;
+}
+
+/* 滚动条 */
+.chat-scroll {
+    max-height: calc(100vh - 180px);
+    overflow-y: auto;
+    padding-bottom: 80px;
+}
+
+.chat-scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-scroll::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 3px;
+}
+
+.chat-scroll::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* 标题样式 */
+.title-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.title-icon {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.title-text {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.title-subtext {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* 清空按钮 */
+.clear-button {
+    background: #475569 !important;
+    color: #f8fafc !important;
+    border-radius: 8px !important;
+    padding: 6px 16px !important;
+    font-size: 13px !important;
+    font-weight: 500 !important;
+    border: none !important;
+}
+
+.clear-button:hover {
+    background: #64748b !important;
+}
+
+/* 欢迎消息 */
+.welcome-message {
+    text-align: center;
+    padding: 30px;
+    color: #94a3b8;
+}
+
+/* 在线状态 */
+.online-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.online-dot {
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    margin-right: 6px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.online-text {
+    font-size: 12px;
+    color: #22c55e;
+}

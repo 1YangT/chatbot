@@ -1,0 +1,34 @@
+app:
+  title: 智能聊天机器人
+  icon: 🤖
+  layout: wide
+
+bot:
+  name: 小助手
+  greeting: 你好！我是小助手，有什么我可以帮你的吗？😊
+  online: true
+
+chat:
+  max_history: 100
+  auto_save: true
+
+intents:
+  - 问候
+  - 告别
+  - 感谢
+  - 名字
+  - 年龄
+  - 帮助
+  - 时间
+  - 日期
+  - 天气
+  - 开心
+  - 难过
+  - 笑话
+  - 夸奖
+  - 关于
+  - 爱
+  - 爱好
+  - 编程
+  - 美食
+  - 旅行
