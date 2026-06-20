@@ -85,6 +85,9 @@ if st.button("发送", use_container_width=True):
         response = chatbot.get_response(user_input)
         chatbot.add_message("assistant", response)
         
-        st.experimental_rerun()
+        try:
+            st.rerun()
+        except AttributeError:
+            st.experimental_rerun()
     else:
         st.warning("请输入消息！")
