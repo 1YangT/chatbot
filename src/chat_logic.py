@@ -45,24 +45,37 @@ class Chatbot:
             机器人响应
         """
         from datetime import datetime
+        import time
         
         user_input_lower = user_input.lower().strip()
+        
+        # 获取北京时间（UTC+8）
+        def get_beijing_time():
+            try:
+                import pytz
+                tz = pytz.timezone('Asia/Shanghai')
+                return datetime.now(tz)
+            except:
+                # 如果没有pytz，使用时间戳计算
+                timestamp = time.time()
+                utc_offset = 8 * 3600  # UTC+8
+                beijing_time = datetime.fromtimestamp(timestamp + utc_offset)
+                return beijing_time
+        
+        now = get_beijing_time()
         
         # 优先处理日期时间查询（最高优先级）
         week_keywords = ["星期", "周几", "礼拜"]
         if any(w in user_input_lower for w in week_keywords):
             week_days = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
-            now = datetime.now()
             return f"今天是 {week_days[now.weekday()]}"
         
         time_keywords = ["时间", "几点"]
         if any(t in user_input_lower for t in time_keywords):
-            now = datetime.now()
             return f"现在是 {now.strftime('%H:%M')}"
         
         date_keywords = ["日期", "今天", "几号"]
         if any(d in user_input_lower for d in date_keywords):
-            now = datetime.now()
             return f"今天是 {now.strftime('%Y年%m月%d日')}"
         
         # 查找匹配的意图
