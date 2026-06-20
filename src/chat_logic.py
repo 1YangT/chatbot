@@ -131,12 +131,30 @@ class Chatbot:
                 "再见！随时欢迎回来！"
             ])
         
+        # 星期查询（放在日期查询前面，避免"今天"被先匹配）
+        week_keywords = ["星期", "周几", "礼拜"]
+        has_week = any(w in user_input_lower for w in week_keywords)
+        if has_week:
+            from datetime import datetime
+            week_days = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+            now = datetime.now()
+            return f"今天是 {week_days[now.weekday()]}"
+        
         # 时间查询
-        time_keywords = ["时间", "几点", "现在"]
-        if any(t in user_input_lower for t in time_keywords):
+        time_keywords = ["时间", "几点"]
+        has_time = any(t in user_input_lower for t in time_keywords)
+        if has_time:
             from datetime import datetime
             now = datetime.now()
-            return f"现在的时间是 {now.strftime('%Y年%m月%d日 %H:%M:%S')}"
+            return f"现在是 {now.strftime('%H:%M')}"
+        
+        # 日期查询
+        date_keywords = ["日期", "今天", "几号"]
+        has_date = any(d in user_input_lower for d in date_keywords)
+        if has_date and not has_week and not has_time:
+            from datetime import datetime
+            now = datetime.now()
+            return f"今天是 {now.strftime('%Y年%m月%d日')}"
         
         # 天气查询
         weather_keywords = ["天气", "气温", "下雨", "晴天"]
@@ -145,21 +163,6 @@ class Chatbot:
                 "抱歉，我目前无法查询实时天气，请查看天气应用！",
                 "天气信息需要联网查询，建议使用天气APP！"
             ])
-        
-        # 日期查询
-        date_keywords = ["日期", "今天", "几号"]
-        if any(d in user_input_lower for d in date_keywords):
-            from datetime import datetime
-            now = datetime.now()
-            return f"今天是 {now.strftime('%Y年%m月%d日')}"
-        
-        # 星期查询
-        week_keywords = ["星期", "周几", "礼拜"]
-        if any(w in user_input_lower for w in week_keywords):
-            from datetime import datetime
-            week_days = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
-            now = datetime.now()
-            return f"今天是 {week_days[now.weekday()]}"
         
         return None
     
